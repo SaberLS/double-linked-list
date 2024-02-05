@@ -24,7 +24,7 @@ export default class doubleLinkedList {
         }
 
         this.length++;
-        console.log(`added to list: ${this.head.data}`);
+        console.log(`push to list: ${this.head.data}`);
     }
 
     pop() { //removes head Node from the list 
@@ -37,9 +37,12 @@ export default class doubleLinkedList {
             this.head = null;
             this.tail = null;
         } else {
-            oldHead.next = null;
             this.head = this.head.next;
+            this.head.previous = null;
+            oldHead.next = null;
         }
+
+        this.length--;
         return oldHead;
     }
 
@@ -56,7 +59,7 @@ export default class doubleLinkedList {
         }
 
         this.length++;
-        console.log(`added to list: ${this.tail.data}`);
+        console.log(`unshift to list: ${this.tail.data}`);
     }
 
     shift() {

@@ -13,9 +13,11 @@ listTest.push(b);
 listTest.unshift(c);
 listTest.unshift(d);
 
-console.log(listTest.log());
-
-const oldHead = listTest.pop();
-console.log(oldHead);
+const oldHeads = new Array();
+oldHeads.push(listTest.pop());
+oldHeads.push(listTest.pop());
+oldHeads.push(listTest.pop());
+oldHeads.push(listTest.pop());
+console.log(oldHeads);
 
 console.log(listTest.log());

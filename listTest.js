@@ -14,10 +14,10 @@ listTest.unshift(c);
 listTest.unshift(d);
 
 const oldHeads = new Array();
-oldHeads.push(listTest.pop());
-oldHeads.push(listTest.pop());
-oldHeads.push(listTest.pop());
-oldHeads.push(listTest.pop());
+oldHeads.push(listTest.shift());
+oldHeads.push(listTest.shift());
+oldHeads.push(listTest.shift());
+oldHeads.push(listTest.shift());
 console.log(oldHeads);
 
 console.log(listTest.log());

@@ -15,9 +15,31 @@ export default class doubleLinkedList {
 
     }
 
-    findByIndex(index) { // search through the list to find Node with a given index 
-        Math.round(this.length / 2)
+    findByIndex(searched) { // search through the list to find Node with a given index 
+        if (typeof searched !== "number" || searched < 1 || searched > this.length) {
+            return null;
+        }
 
+        const distanceFromTail = this.length - searched;
+        const distanceFromHead = searched - 1;
+
+        const isCloserFromTail = (distanceFromTail < distanceFromHead ? true : false);
+
+        let advance = (current) => { i++; return current.next };
+        let current = this.head;
+        let i = 1;
+
+        if (isCloserFromTail) {
+            advance = (current) => { i--; return current.previous };
+            current = this.tail;
+            i = this.length;
+        }
+
+        while (current !== null && i !== searched) {
+            current = advance(current);
+        }
+
+        return current;
     }
 
     push(newHead) { //add new Node to the beginning of the list

@@ -13,11 +13,9 @@ listTest.push(b);
 listTest.unshift(c);
 listTest.unshift(d);
 
-const oldHeads = new Array();
-oldHeads.push(listTest.shift());
-oldHeads.push(listTest.shift());
-oldHeads.push(listTest.shift());
-oldHeads.push(listTest.shift());
-console.log(oldHeads);
 
 console.log(listTest.log());
+
+console.log(listTest.findByIndex(0));
+console.log(listTest.findByIndex(4));
+console.log(listTest.findByIndex(5));

@@ -11,11 +11,37 @@ export default class doubleLinkedList {
         return (this.length === 0 ? true : false);
     }
 
-    findByData() {
+    findByData(searched) {//search through the list to find all Nodes with a given data 
+        let left = this.head;
+        let right = this.tail;
+        const finded = new Array();
+        let i = 1;
 
+        const lengthIsEven = ((this.length % 2) === 0 ? true : false);
+        const condition = (lengthIsEven ? (left, right) => { return left.previous !== right } : (left, right) => { return left !== right })
+
+        while (condition(left, right)) {
+            if (left.data === searched) {
+                finded.unshift(i);
+            }
+
+            if (right.data === searched) {
+                finded.unshift(this.length - i + 1);
+            }
+
+            left = left.next;
+            right = right.previous;
+            i++;
+        }
+
+        if (lengthIsEven && left.data === searched) {
+            finded.unshift(i);
+        }
+
+        return finded;
     }
 
-    findByIndex(searched) { // search through the list to find Node with a given index 
+    findByIndex(searched) {//search through the list to find Node with a given index 
         if (typeof searched !== "number" || searched < 1 || searched > this.length) {
             return null;
         }
@@ -25,14 +51,18 @@ export default class doubleLinkedList {
 
         const isCloserFromTail = (distanceFromTail < distanceFromHead ? true : false);
 
-        let advance = (current) => { i++; return current.next };
-        let current = this.head;
-        let i = 1;
+        let advance;
+        let current;
+        let i;
 
         if (isCloserFromTail) {
             advance = (current) => { i--; return current.previous };
             current = this.tail;
             i = this.length;
+        } else {
+            advance = (current) => { i++; return current.next };
+            current = this.head;
+            i = 1;
         }
 
         while (current !== null && i !== searched) {
@@ -42,7 +72,7 @@ export default class doubleLinkedList {
         return current;
     }
 
-    push(newHead) { //add new Node to the beginning of the list
+    push(newHead) {//add new Node to the beginning of the list
         checkDataType(newHead, Node);
 
         if (this.isEmpty()) {
@@ -58,7 +88,7 @@ export default class doubleLinkedList {
         console.log(`push to list: ${this.head.data}`);
     }
 
-    pop() { //removes head Node from the list 
+    pop() {//removes head Node from the list 
         if (this.isEmpty()) {
             return null;
         }
@@ -77,7 +107,7 @@ export default class doubleLinkedList {
         return oldHead;
     }
 
-    unshift(newTail) { //add new Node to the end of the list
+    unshift(newTail) {//add new Node to the end of the list
         checkDataType(newTail, Node);
 
         if (this.isEmpty()) {
@@ -93,7 +123,7 @@ export default class doubleLinkedList {
         console.log(`unshift to list: ${this.tail.data}`);
     }
 
-    shift() {// removes tail Node from the list
+    shift() {//removes tail Node from the list
         if (this.isEmpty()) {
             return null;
         }
@@ -112,7 +142,7 @@ export default class doubleLinkedList {
         return oldTail;
     }
 
-    log() { // returns a string with all Nodes in a list
+    log() {//returns a string with all Nodes in a list
         let current = this.head;
         let i = 1;
         let result = '';

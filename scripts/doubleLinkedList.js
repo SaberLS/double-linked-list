@@ -1,4 +1,5 @@
 import Node from "./Node.js";
+import checkDataType from "./checkDataType.js";
 
 export default class doubleLinkedList {
     constructor() {
@@ -12,9 +13,13 @@ export default class doubleLinkedList {
     }
 
     findByData(searched) {//search through the list to find all Nodes with a given data 
+        if (this.isEmpty()) {
+            return [];
+        }
+
         let left = this.head;
         let right = this.tail;
-        const finded = new Array();
+        const finded = [];
         let i = 1;
 
         const lengthIsEven = ((this.length % 2) === 0 ? true : false);
@@ -34,7 +39,7 @@ export default class doubleLinkedList {
             i++;
         }
 
-        if (lengthIsEven && left.data === searched) {
+        if (!lengthIsEven && this.length > 2 && left.data === searched) {
             finded.unshift(i);
         }
 
@@ -42,6 +47,10 @@ export default class doubleLinkedList {
     }
 
     findByIndex(searched) {//search through the list to find Node with a given index 
+        if (this.isEmpty()) {
+            return null;
+        }
+
         if (typeof searched !== "number" || searched < 1 || searched > this.length) {
             return null;
         }
@@ -157,10 +166,3 @@ export default class doubleLinkedList {
     }
 }
 
-function checkDataType(data, desiredType) {
-    if (data instanceof desiredType) {
-        return true;
-    } else {
-        throw new Error(`${data} doesn't match desired data type: ${desiredType}`);
-    }
-}

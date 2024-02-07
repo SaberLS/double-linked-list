@@ -1,5 +1,7 @@
+import checkDataType from "./checkDataType";
+
 export default class Node {
-    constructor(data) {
+    constructor(data = null) {
         this.data = data;
         this.next = null;
         this.previous = null;

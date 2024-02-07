@@ -3,4 +3,8 @@ module.exports = {
     transform: {
         '^.+\\.(js|jsx|ts|tsx|mjs)$': 'babel-jest',
     },
+    reporters: [
+        "default",
+        "jest-html-reporters"
+    ],
 }

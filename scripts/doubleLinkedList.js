@@ -81,7 +81,7 @@ export default class doubleLinkedList {
         return current;
     }
 
-    push(newHead) {//add new Node to the beginning of the list
+    push(newHead) {//adds new Node to the beginning of the list
         checkDataType(newHead, Node);
 
         if (this.isEmpty()) {
@@ -97,7 +97,7 @@ export default class doubleLinkedList {
         console.log(`push to list: ${this.head.data}`);
     }
 
-    pop() {//removes head Node from the list 
+    pop() {//removes first Node from the list 
         if (this.isEmpty()) {
             return null;
         }

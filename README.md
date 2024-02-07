@@ -21,7 +21,7 @@ My attempt at creating double linked list with methods similar to Array like pus
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/SaberLS/double-linked-list.git
 ```
 
 Go to the project directory

@@ -6,29 +6,30 @@ describe("doubleLinkedList: push", () => {
     const a = new Node(1);
     const b = new Node(2);
 
-    test("it should push a Node into empty List and set it as head and tail", () => {
+    test("it should add new Node to empty list and set it as head and tail of the list", () => {
         testList.push(a);
 
         expect(testList.head).toEqual(a);
         expect(testList.tail).toEqual(a);
     });
 
-    test("it should increase length of the list by 1", () => {
-        expect(testList.length).toBe(1);
-    });
-
-    test("it should push a Node into not empty list and set its as head", () => {
+    test("it should increment value of list.length", () => {
+        const length = testList.length;
         testList.push(b);
 
-        expect(testList.head).toEqual(b);
-        expect(b.next).toEqual(a);
-
-        expect(a.previous).toEqual(b);
-        expect(testList.tail).toEqual(a);
+        expect(testList.length).toEqual(length + 1);
     });
 
+    test("it should add new Node to not empty list and set it as tail", () => {
+        expect(testList.tail).toEqual(b);
+    });
 
-    test("it should throw TypeError when given data diffrent than Node", () => {
+    test("it should change value of .next on previous Node", () => {
+        expect(b.previous).toEqual(a);
+        expect(a.next).toEqual(b);
+    });
+
+    test("it should throw TypeError if given data diffrent than Node", () => {
         expect(() => { testList.push('NN') }).toThrow(TypeError);
     });
 });

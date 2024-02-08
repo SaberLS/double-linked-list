@@ -12,24 +12,24 @@ describe("doubleLinkedList: findByData", () => {
     });
 
     test("it returns empty Array when there is no Node with searched data", () => {
-        testList.push(a);
+        testList.unshift(a);
         const result = testList.findByData(5);
 
         expect(result).toEqual([]);
     });
 
     test("it returns Array with all indexes of Nodes which .data equals searched data, even list.length", () => {
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
-        testList.unshift(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
+        testList.push(new Node(1));
         const result = testList.findByData(1);
 
         console.log(result);
-        expect(result).toEqual([5, 4, 6, 3, 7, 2, 8, 1]);
+        expect(result).toEqual([1, 8, 2, 7, 3, 6, 4, 5]);
     });
 
     test("it returns Array with all indexes of Nodes which .data equals searched data, odd list.length", () => {
@@ -37,6 +37,6 @@ describe("doubleLinkedList: findByData", () => {
         const result = testList.findByData(1);
 
         console.log(result);
-        expect(result).toEqual([5, 6, 4, 7, 3, 8, 2, 9, 1]);
+        expect(result).toEqual([1, 9, 2, 8, 3, 7, 4, 6, 5]);
     });
 });

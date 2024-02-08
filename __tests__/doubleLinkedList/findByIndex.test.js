@@ -16,21 +16,21 @@ describe("doubleLinkedList: findByIndex", () => {
     });
 
     test("it returns null when given index is greater than list.length", () => {
-        testList.push(a);
+        testList.unshift(a);
         const result = testList.findByIndex(5);
 
         expect(result).toBe(null);
     });
 
     test("it returns null when given index is smaller than 1", () => {
-        testList.push(a);
+        testList.unshift(a);
         const result = testList.findByIndex(0);
 
         expect(result).toBe(null);
     });
 
     test("it returns list.head Node when given 1", () => {
-        testList.push(b);
+        testList.unshift(b);
         const result = testList.findByIndex(1);
 
         expect(result).toEqual(testList.head);
@@ -43,8 +43,8 @@ describe("doubleLinkedList: findByIndex", () => {
     });
 
     test("it returns Node with given index", () => {
-        testList.push(c);
-        testList.push(d);
+        testList.unshift(c);
+        testList.unshift(d);
         const resultB = testList.findByIndex(3);
         const resultC = testList.findByIndex(2);
 

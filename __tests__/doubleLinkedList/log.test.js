@@ -13,8 +13,8 @@ describe("doubleLinkedList: log", () => {
     });
 
     test("it returns string with all Nodes and indexes", () => {
-        testList.unshift(a);
-        testList.unshift(b);
+        testList.push(a);
+        testList.push(b);
         const result = testList.log();
 
         expect(result).toEqual(`1${a.log()}\t\n2${b.log()}\t\n`);

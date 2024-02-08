@@ -27,11 +27,11 @@ export default class doubleLinkedList {
 
         while (condition(left, right)) {
             if (left.data === searched) {
-                finded.unshift(i);
+                finded.push(i);
             }
 
             if (right.data === searched) {
-                finded.unshift(this.length - i + 1);
+                finded.push(this.length - i + 1);
             }
 
             left = left.next;
@@ -40,7 +40,7 @@ export default class doubleLinkedList {
         }
 
         if (!lengthIsEven && this.length > 2 && left.data === searched) {
-            finded.unshift(i);
+            finded.push(i);
         }
 
         return finded;
@@ -81,7 +81,7 @@ export default class doubleLinkedList {
         return current;
     }
 
-    push(newHead) {//adds new Node to the beginning of the list
+    unshift(newHead) {//adds new Node to the beginning of the list
         checkDataType(newHead, Node);
 
         if (this.isEmpty()) {
@@ -94,10 +94,10 @@ export default class doubleLinkedList {
         }
 
         this.length++;
-        console.log(`push to list: ${this.head.data}`);
+        console.log(`unshift to list: ${this.head.data}`);
     }
 
-    pop() {//removes first Node from the list 
+    shift() {//removes first Node from the list 
         if (this.isEmpty()) {
             return null;
         }
@@ -116,7 +116,7 @@ export default class doubleLinkedList {
         return oldHead;
     }
 
-    unshift(newTail) {//add new Node to the end of the list
+    push(newTail) {//add new Node to the end of the list
         checkDataType(newTail, Node);
 
         if (this.isEmpty()) {
@@ -129,10 +129,10 @@ export default class doubleLinkedList {
         }
 
         this.length++;
-        console.log(`unshift to list: ${this.tail.data}`);
+        console.log(`push to list: ${this.tail.data}`);
     }
 
-    shift() {//removes tail Node from the list
+    pop() {//removes tail Node from the list
         if (this.isEmpty()) {
             return null;
         }

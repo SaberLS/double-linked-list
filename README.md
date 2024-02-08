@@ -8,10 +8,10 @@ My attempt at creating double linked list with methods similar to Array like pus
 
 ## List methods
 
-- push: adds new Node to the beginning of the list.
-- pop: removes first Node from the list.
-- unshift: adds new Node to the end of the list.
-- shift: removes last Node from the list.
+- unshift: adds new Node to the beginning of the list.
+- shift: removes first Node from the list.
+- push: adds new Node to the end of the list.
+- pop: removes last Node from the list.
 - log: returns a string with all Nodes in a list.
 - findByIndex: search through the list to find Node with a given index, returns Node with a given index.
 - findByData: search through the list to find all Nodes with a given data, returns indexes of finded Nodes.
@@ -21,7 +21,7 @@ My attempt at creating double linked list with methods similar to Array like pus
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/SaberLS/double-linked-list.git
 ```
 
 Go to the project directory

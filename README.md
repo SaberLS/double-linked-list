@@ -44,7 +44,7 @@ To run tests, run the following command
   yarn test
 ```
 
-it runs all the tests and creates test coverage report at ./jest_html_reporters.html with use of <a href="https://github.com/Hazyzh/jest-html-reporters" target="_blank" rel="noreferrer"><p>jest-html-reporters</p></a>
+it runs all the tests and creates test coverage report at ./jest_html_reporters.html with use of <a href="https://github.com/Hazyzh/jest-html-reporters" target="_blank" rel="noreferrer">jest-html-reporters</a>
 
 ## License
 

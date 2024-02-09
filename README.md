@@ -14,7 +14,7 @@ My attempt at creating double linked list with methods similar to Array like pus
 - pop: removes last Node from the list.
 - log: returns a string with all Nodes in a list.
 - findByIndex: search through the list to find Node with a given index, returns Node with a given index.
-- findByData: search through the list to find all Nodes with a given data, returns indexes of finded Nodes.
+- indexOf: search through the list to find all Nodes with a given data, returns indexes of finded Nodes.
 
 ## Run Locally
 

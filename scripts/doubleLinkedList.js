@@ -12,7 +12,7 @@ export default class doubleLinkedList {
         return (this.length === 0 ? true : false);
     }
 
-    findByData(searched) {//search through the list to find all Nodes with a given data 
+    indexOf(searched) {//search through the list to find all Nodes with a given data 
         if (this.isEmpty()) {
             return [];
         }

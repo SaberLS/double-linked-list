@@ -151,6 +151,20 @@ export default class doubleLinkedList {
         return oldTail;
     }
 
+    forEach(func) {//takes function and executes it once for each list element
+        if (typeof func !== "function") {
+            throw new TypeError(`${func} is not a function`);
+        };
+        let current = this.head;
+        let i = 1;
+
+        while (current !== null) {
+            func(current, i);
+            i++;
+            current = current.next;
+        };
+    }
+
     log() {//returns a string with all Nodes in a list
         let current = this.head;
         let i = 1;

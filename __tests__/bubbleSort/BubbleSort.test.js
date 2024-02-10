@@ -1,5 +1,5 @@
 import doubleLinkedList from "../../scripts/doubleLinkedList.js";
-import BubbleSort from "../../scripts/BubbleSort.js";
+import BubbleSort from "../../scripts/bubbleSort.js";
 import Node from "../../scripts/Node.js";
 
 describe("BubbleSort", () => {

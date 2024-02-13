@@ -1,4 +1,4 @@
-import Node from "./Node.js";
+import Node from "./node.js";
 import checkDataType from "./checkDataType.js";
 
 export default class doubleLinkedList {
@@ -11,6 +11,80 @@ export default class doubleLinkedList {
     isEmpty() {
         return (this.length === 0 ? true : false);
     }
+
+    isPartOfTheList(toCheck) { //searches through the list if given node is part of the list return true else false
+        let response = false;
+        this.forEach((node) => {
+            if (toCheck === node) {
+                response = true;
+            }
+        })
+        return response;
+    }
+
+    swap(x, y) {
+        function swapNeighbours(x, y) {
+            let first;
+            let second;
+
+            if (x.next === y) {
+                first = x;
+                second = y;
+            } else {
+                first = y;
+                second = x;
+            }
+
+            if (second.next !== null) {
+                second.next.previous = first;
+            };
+            if (first.previous !== null) {
+                first.previous.next = second;
+            };
+
+            first.next = second.next;
+            second.next = first;
+
+            second.previous = first.previous;
+            first.previous = second;
+        }
+
+        function swapNotNeighbours(x, y) {
+            (x.next !== null ? x.next.previous = y : null);
+            (x.previous !== null ? x.previous.next = y : null);
+
+            (y.next !== null ? y.next.previous = x : null);
+            (y.previous !== null ? y.previous.next = x : null);
+
+            const holderXnext = x.next;
+            const holderXprevious = x.previous;
+
+            x.next = y.next;
+            x.previous = y.previous;
+
+            y.next = holderXnext;
+            y.previous = holderXprevious;
+        }
+
+        if (typeof x === "number") {
+            x = this.findByIndex(x);
+        } else if (this.isPartOfTheList(x) === false) {
+            throw new Error(`${x} is not part of the List`);
+        }
+
+        if (typeof y === "number") {
+            y = this.findByIndex(y);
+        } else if (this.isPartOfTheList(y) === false) {
+            throw new Error(`${y} is not part of the List`);
+        }
+
+        const areNeighbours = (y.next === x || y.previous === x ? true : false);
+        (areNeighbours ? swapNeighbours(x, y) : swapNotNeighbours(x, y));
+
+        (this.head === x ? this.head = y : (this.head === y ? this.head = x : null));
+        (this.tail === x ? this.tail = y : (this.tail === y ? this.tail = x : null));
+    }
+
 
     indexOf(searched) {//search through the list to find all Nodes with a given data 
         if (this.isEmpty()) {

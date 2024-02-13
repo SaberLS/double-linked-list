@@ -1,5 +1,5 @@
 import doubleLinkedList from "../../scripts/doubleLinkedList.js";
-import Node from "../../scripts/Node.js";
+import Node from "../../scripts/node.js";
 
 describe("doubleLinkedList: pop", () => {
     const testList = new doubleLinkedList();

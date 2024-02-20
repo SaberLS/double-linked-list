@@ -1,8 +1,8 @@
 import doubleLinkedList from "../../../scripts/doubleLinkedList.js";
-import bubbleSort from "../../../scripts/sort/bubbleSort/bubbleSort.js";
+import cocktailShakerSort from "../../../scripts/sort/bubbleSort/cocktailShakerSort.js";
 import Node from "../../../scripts/node.js";
 
-describe("bubbleSort", () => {
+describe("cocktailShakerSort", () => {
     test("it doesn't change single element list", () => {
         const testList = new doubleLinkedList();
         testList.push(new Node(1));
@@ -10,7 +10,7 @@ describe("bubbleSort", () => {
         const expectedResult = new doubleLinkedList;
         expectedResult.push(new Node(1));
 
-        bubbleSort(testList);
+        cocktailShakerSort(testList);
         expect(testList).toEqual(expectedResult);
     });
 
@@ -23,32 +23,30 @@ describe("bubbleSort", () => {
         expectedResult.push(new Node(1));
         expectedResult.push(new Node(2));
 
-        bubbleSort(testList);
+        cocktailShakerSort(testList);
         expect(testList).toEqual(expectedResult);
     });
 
 
     test("it sorts list in ascending order by data", () => {
         const testList = new doubleLinkedList();
-        testList.push(new Node(5));
-        testList.push(new Node(4));
-        testList.push(new Node(3));
-        testList.push(new Node(2));
-        testList.push(new Node(1));
+
+        for (let i = 1; i < 101; i++) {
+            testList.unshift(new Node(i));
+        }
 
         const expectedResult = new doubleLinkedList;
-        expectedResult.push(new Node(1));
-        expectedResult.push(new Node(2));
-        expectedResult.push(new Node(3));
-        expectedResult.push(new Node(4));
-        expectedResult.push(new Node(5));
+        for (let i = 1; i < 101; i++) {
+            expectedResult.push(new Node(i));
+        }
 
-        bubbleSort(testList);
+        cocktailShakerSort(testList);
         expect(testList).toEqual(expectedResult);
     });
 
     test("it doesn't change list which is already sorted", () => {
         const testList = new doubleLinkedList();
+
         testList.push(new Node(1));
         testList.push(new Node(2));
         testList.push(new Node(3));
@@ -62,7 +60,7 @@ describe("bubbleSort", () => {
         expectedResult.push(new Node(4));
         expectedResult.push(new Node(5));
 
-        bubbleSort(testList);
+        cocktailShakerSort(testList);
         expect(testList).toEqual(expectedResult);
     });
 });

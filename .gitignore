@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/yarn,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node
 
+#jest-html-reporters
+jest-html-reporters-attach/
+jest_html_reporters.html
+
 ### Node ###
 # Logs
 logs

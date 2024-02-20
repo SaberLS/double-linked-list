@@ -1,6 +1,6 @@
-import doubleLinkedList from "../../../scripts/doubleLinkedList.js";
-import mergeSort from "../../../scripts/sort/mergeSort.js";
-import Node from "../../../scripts/node.js";
+import doubleLinkedList from "../../scripts/doubleLinkedList.js";
+import mergeSort from "../../scripts/sort/mergeSort.js";
+import Node from "../../scripts/node.js";
 
 describe("mergeSort", () => {
     test("returns unchanged list when given single element list", () => {

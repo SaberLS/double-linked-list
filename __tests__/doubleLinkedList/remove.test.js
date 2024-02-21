@@ -66,4 +66,9 @@ describe('doubleLinkedList: remove', () => {
         expect(b.next).toEqual(a);
     });
 
+    test('should decrease list.length by 1', () => {
+        testList.remove(2);
+        expect(testList.length).toBe(1);
+    });
+
 })

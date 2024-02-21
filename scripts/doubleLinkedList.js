@@ -269,7 +269,25 @@ export default class doubleLinkedList {
         }
     }
 
+    insertBefore(toInsert, next) {
+        checkDataType(toInsert, Node);
+        checkDataType(next, Node);
 
+        if (!this.isPartOfTheList(next)) {
+            throw new Error(`${next} is not part of the list`);
+        }
+
+        if (next === this.head) {
+            this.unshift(toInsert);
+        } else {
+            next.previous.next = toInsert;
+            toInsert.previous = next.previous;
+            next.previous = toInsert;
+            toInsert.next = next;
+
+            this.length++;
+        }
+    }
 
     log() {//returns a string with all Nodes in a list
         let current = this.head;

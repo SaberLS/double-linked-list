@@ -239,6 +239,38 @@ export default class doubleLinkedList {
         };
     }
 
+    remove(toRemove) {
+        if (typeof toRemove === "number") {
+            const nodeToRemove = this.findByIndex(toRemove);
+
+            if (nodeToRemove === null) {
+                return toRemove;
+            } else {
+                toRemove = nodeToRemove;
+            }
+        } else {
+            checkDataType(toRemove, Node);
+        }
+
+        if (this.isPartOfTheList(toRemove)) {
+            toRemove === this.head ? this.head = toRemove.next : null;
+            toRemove === this.tail ? this.tail = toRemove.previous : null;
+
+            toRemove.next !== null ? toRemove.next.previous = toRemove.previous : null;
+            toRemove.previous !== null ? toRemove.previous.next = toRemove.next : null;
+
+            toRemove.next = null;
+            toRemove.previous = null;
+
+            this.length--;
+            return toRemove;
+        } else {
+            return toRemove;
+        }
+    }
+
+
+
     log() {//returns a string with all Nodes in a list
         let current = this.head;
         let i = 1;
@@ -253,4 +285,3 @@ export default class doubleLinkedList {
         return result;
     }
 }
-

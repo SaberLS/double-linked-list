@@ -1,34 +1,37 @@
 function partition(list, low, high) {
     // Choosing the pivot,
-    const pivotData = list.findByIndex(high).data;
+    const pivot = list.findByIndex(high);
+    const pivotData = pivot.data;
 
     // Index of smaller element and indicates the right position of pivot found so far
-    let i = low - 1;
-    let current;
-    let currentLow;
+    let current = list.findByIndex(low);
+    let currentLow = list.findByIndex(low);
+    let currentLowIndex = low;
     let holder;
 
-    for (let j = low; j <= high - 1; j++) {
+    while (current !== pivot) {
         // If current element is smaller than the pivot
-        current = list.findByIndex(j);
         if (current.data < pivotData) {
             // Increment index of smaller element
-            i++;
-            currentLow = list.findByIndex(i);
+            currentLowIndex++;
             // Swap elements
-            holder = current.data;
-            current.data = currentLow.data;
-            currentLow.data = holder;
+            holder = current.next;
+            list.swap(currentLow, current);
+
+            currentLow = current.next;
+            current = holder;
+        } else {
+            current = current.next;
         }
     }
 
-    list.swap(list.findByIndex(i + 1), list.findByIndex(high));// Swap pivot to its correct position
-    return i + 1; // Return the partition index
+    list.swap(currentLow, pivot);// Swap pivot to its correct position
+    return currentLowIndex; // Return the partition index
 }
 
-export function quickSort(list, low, high) {
+export default function quickSort(list, low = 1, high = list.length) {
     if (low < high) {
-        // pi is the partitioning index, arr[pi] is now at the right place
+        // pi is the partitioning index, is now at the right place
         let pi = partition(list, low, high);
 
         // Separately sort elements before partition and after partition

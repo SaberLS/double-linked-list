@@ -200,7 +200,7 @@ export default class doubleLinkedList {
             newTail.previous = this.tail;
             this.tail.next = newTail;
             this.tail = newTail;
-        }
+        } a
 
         this.length++;
         console.log(`push to list: ${this.tail.data}`);

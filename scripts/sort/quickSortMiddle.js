@@ -1,7 +1,11 @@
 function partition(list, low, high) {
     // Choosing the pivot,
-    const pivot = list.findByIndex(high);
+    const pivotIndex = Math.floor((low + high) / 2);
+    const pivot = list.findByIndex(pivotIndex);
     const pivotData = pivot.data;
+    const highNode = list.findByIndex(high);
+    list.remove(pivot); list.insertAfter(pivot, highNode); //move pivot to the end of the list so it doesn't take part in partitioning
+
 
     // Index of smaller element and indicates the right position of pivot found so far
     let current = list.findByIndex(low);
@@ -12,20 +16,19 @@ function partition(list, low, high) {
     while (current !== pivot) {
         // If current element is smaller than the pivot
         if (current.data < pivotData) {
-            // Increment index of smaller element
-            currentLowIndex++;
             // Swap elements
             holder = current.next;
             list.swap(currentLow, current);
 
             currentLow = current.next;
             current = holder;
+            // Increment index of smaller element
+            currentLowIndex++;
         } else {
             current = current.next;
         }
     }
-
-    list.swap(currentLow, pivot);// Swap pivot to its correct position
+    list.swap(pivot, currentLow);// Swap pivot to its correct position
     return currentLowIndex; // Return the partition index
 }
 

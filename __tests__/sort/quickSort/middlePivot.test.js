@@ -1,6 +1,6 @@
-import quickSort from "../../scripts/sort/quickSort.js";
-import doubleLinkedList from "../../scripts/doubleLinkedList.js";
-import Node from "../../scripts/node.js";
+import quickSort from "../../../scripts/sort/quickSortMiddle.js";
+import doubleLinkedList from "../../../scripts/doubleLinkedList.js";
+import Node from "../../../scripts/node.js";
 
 describe("quickSort", () => {
     test("it doesn't change single element list", () => {

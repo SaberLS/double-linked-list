@@ -168,7 +168,6 @@ export default class doubleLinkedList {
         }
 
         this.length++;
-        console.log(`unshift to list: ${this.head.data}`);
     }
 
     shift() {//removes first Node from the list 
@@ -200,10 +199,9 @@ export default class doubleLinkedList {
             newTail.previous = this.tail;
             this.tail.next = newTail;
             this.tail = newTail;
-        } a
+        }
 
         this.length++;
-        console.log(`push to list: ${this.tail.data}`);
     }
 
     pop() {//removes tail Node from the list

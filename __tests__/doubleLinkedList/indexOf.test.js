@@ -28,7 +28,6 @@ describe("doubleLinkedList: indexOf", () => {
         testList.push(new Node(1));
         const result = testList.indexOf(1);
 
-        console.log(result);
         expect(result).toEqual([1, 8, 2, 7, 3, 6, 4, 5]);
     });
 
@@ -36,7 +35,6 @@ describe("doubleLinkedList: indexOf", () => {
         testList.unshift(new Node(1));
         const result = testList.indexOf(1);
 
-        console.log(result);
         expect(result).toEqual([1, 9, 2, 8, 3, 7, 4, 6, 5]);
     });
 });

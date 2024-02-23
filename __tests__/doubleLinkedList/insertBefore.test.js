@@ -22,7 +22,6 @@ describe('doubleLinkedList: insertBefore', () => {
 
         testList.insertBefore(a, b);
 
-        console.log(testList.log());
         expect(b.previous).toEqual(a);
     })
 

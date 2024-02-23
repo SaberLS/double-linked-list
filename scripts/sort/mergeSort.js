@@ -17,9 +17,9 @@ export default function mergeSort(list) {
         }
     });
 
-    console.log("list: ", list.log());
-    console.log("left: ", left.log());
-    console.log("right: ", right.log());
+    // console.log("list: ", list.log());
+    // console.log("left: ", left.log());
+    // console.log("right: ", right.log());
 
     left = mergeSort(left);
     right = mergeSort(right);

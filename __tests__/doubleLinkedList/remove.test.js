@@ -30,7 +30,6 @@ describe('doubleLinkedList: remove', () => {
         testList.push(a)
         const result = testList.remove(1);
 
-        console.log(result);
         expect(result).toEqual(a);
     });
 

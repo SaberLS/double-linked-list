@@ -66,7 +66,6 @@ describe("doubleLinkedList: swap", () => {
         testList.push(e);
         testList.push(new Node(6));
 
-        console.log(testList.log());
         testList.swap(b, e);
 
         const expectedResult = new doubleLinkedList();

@@ -1,4 +1,4 @@
-import quickSort from "../../../scripts/sort/quickSort.js";
+import quickSort from "../../../scripts/sort/quickSort/quickSort.js";
 import doubleLinkedList from "../../../scripts/doubleLinkedList.js";
 import Node from "../../../scripts/node.js";
 

@@ -268,6 +268,10 @@ export default class doubleLinkedList {
     }
 
     insertBefore(toInsert, next) {
+        if (typeof (next) === "number") {
+            next = this.findByIndex(next);
+        };
+
         checkDataType(toInsert, Node);
         checkDataType(next, Node);
 
@@ -288,6 +292,10 @@ export default class doubleLinkedList {
     }
 
     insertAfter(toInsert, previous) {
+        if (typeof (previous) === "number") {
+            previous = this.findByIndex(previous);
+        };
+
         checkDataType(toInsert, Node);
         checkDataType(previous, Node);
 

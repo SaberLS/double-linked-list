@@ -1,6 +1,6 @@
 # double-linked-list
 
-My attempt at creating double linked list with methods similar to Array like push, pop etc. and testing them with jest.
+My attempt at creating double linked list with methods similar to Array like push, pop etc. ,implementing some basic sorting algorithms on created list and testing it with jest.
 
 ## 🛠 In this project I used
 
@@ -8,13 +8,30 @@ My attempt at creating double linked list with methods similar to Array like pus
 
 ## List methods
 
-- unshift: adds new Node to the beginning of the list.
-- shift: removes first Node from the list.
-- push: adds new Node to the end of the list.
-- pop: removes last Node from the list.
-- log: returns a string with all Nodes in a list.
-- findByIndex: search through the list to find Node with a given index, returns Node with a given index.
-- indexOf: search through the list to find all Nodes with a given data, returns indexes of finded Nodes.
+- unshift(newHead): adds "newHead" node to the beginning of the list.
+- shift(): removes first node from the list, returns removed node.
+- push(newTail): adds "newTail" node to the end of the list.
+- pop(): removes last node from the list, returns removed node.
+- log(): returns a string with all nodes in a list.
+- findByIndex(searched): search through the list to find node with a given index, returns node with a given index.
+- indexOf(data): search through the list to find all Nodes with a given data, returns array with indexes of finded nodes.
+- isEmpty(): checks if a list is empty, returns true if is empty else false.
+- swap(x, y): swaps places of two given nodes.
+- isPartOfTheList(toCheck): checks if given node is part of the list, returns true if is part of the list else false.
+- forEach(func): takes function and executes it once for each list element. func(current, index) is called with two arguments current which is current node, index is index of current node in list.
+- remove(toRemove): removes given node from the list, returns removed node.
+- insertBefore(toInsert, next): takes two nodes toInsert node to insert to list, next node before which toInsert will be inserted.
+- insertAfter(toInsert, next): takes two nodes toInsert node to insert to list, previous node after which toInsert will be inserted.
+
+## Implemented sorting alghoritms
+
+- [bubbleSort](https://en.wikipedia.org/wiki/Bubble_sort)
+- [cocktailShakerSort](https://en.wikipedia.org/wiki/Cocktail_shaker_sort)
+- [quickSort/quickSortMiddle](https://en.wikipedia.org/wiki/Quicksort) first one uses last element as pivot second middle one.
+- [heapSort](https://en.wikipedia.org/wiki/Heapsort)
+- [insertionSort](https://en.wikipedia.org/wiki/Insertion_sort)
+- [mergeSort](https://en.wikipedia.org/wiki/Merge_sort)
+- [selectionSort](https://en.wikipedia.org/wiki/Selection_sort)
 
 ## Run Locally
 
